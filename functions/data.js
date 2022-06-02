@@ -14,7 +14,7 @@ exports.readData = functions.https.onRequest(async (req, res) => {
 
       // Send all docs along with ID
       res.send(
-        snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data().data }))
+        snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data().data, type: doc.data().type }))
       );
     } catch (e) {
       res.status(500).send({
