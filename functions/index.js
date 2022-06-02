@@ -1,11 +1,9 @@
-// const admin = require("firebase-admin");
-
-// // Initialise admin app instance
-// admin.initializeApp();
+// Initialise admin app instance
+const admin = require("firebase-admin");
+admin.initializeApp();
 
 // Export Views functions
-const views = require("./views");
-exports.views = views.createView;
-exports.views = views.readView;
-exports.views = views.updateView;
-exports.views = views.deleteView;
+exports.views = require("./views");
+
+// Export Data functions
+exports.data = require("./data");
