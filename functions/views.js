@@ -30,8 +30,8 @@ exports.readView = functions.https.onRequest(async (req, res) => {
       const { viewId } = req.body;
 
       // Return relevant view
-      const doc = db.collection("views").doc(viewId).get()
-      res.send(await doc.data());
+      const doc = await db.collection("views").doc(viewId).get();
+      res.send(doc.data());
     } catch (e) {
       res.status(500).send({
         error: e.stack,
